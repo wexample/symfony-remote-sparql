@@ -1,7 +1,7 @@
 {
   "name": "wexample/symfony-remote-sparql",
   "description": "SPARQL endpoints (Wikidata's query service by default) as symfony-remotes: SELECT queries read as plain rows",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "type": "library",
   "license": "MIT",
   "autoload": {
@@ -23,8 +23,8 @@
   "require": {
     "php": ">=8.5",
     "wexample/symfony-helpers": ">=19.3.0",
-    "wexample/symfony-remote": ">=2.2.0",
-    "wexample/php-remote": ">=2.0.2",
+    "wexample/symfony-remote": ">=2.3.0",
+    "wexample/php-remote": ">=3.0.0",
     "symfony/http-client": ">=7.0"
   },
   "require-dev": {
