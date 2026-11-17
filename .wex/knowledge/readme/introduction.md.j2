@@ -1,0 +1,3 @@
+`symfony-remote-sparql` asks SPARQL endpoints from a Symfony app — Wikidata's query service by default, any other one by configuration (DBpedia, the BnF, a triple store of one's own). A `SparqlClient` per endpoint runs `SELECT` queries and reads their answers as plain rows: a value per variable, the unbound ones left out, entity URIs cut to their id (`Q42`) when the endpoint names the prefix to cut.
+
+Each endpoint is a `symfony-remote`, so `remote:status` checks it. A failure is tried again a few times, then raised as php-remote's `RemoteException`: run the call through `RemoteGuard` where the app must go on without the answer.

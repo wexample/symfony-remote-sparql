@@ -1,0 +1,11 @@
+## Architecture
+
+Under `Wexample\SymfonyRemoteSparql\` (PSR-4 on `src/`):
+
+- {{ path("src/Service/SparqlClient.php") }}, one endpoint: `select()` over HTTP GET with `Accept: application/sparql-results+json`, the configured `User-Agent`, retries spaced by `retry_delay` times the attempt. Transport errors, error statuses and an answer without `results.bindings` (or `boolean`) count as failures; the last one is raised as php-remote's `RemoteException`, with the remote's key. It implements `RemoteInterface`, so symfony-remote's autoconfiguration registers it.
+- {{ path("src/Helper/SparqlValueHelper.php") }}, static readings of row values.
+- {{ path("src/DependencyInjection/WexampleSymfonyRemoteSparqlExtension.php") }} defines a client per entry of `endpoints` ({{ path("src/DependencyInjection/Configuration.php") }}, Wikidata by default), autoconfigured, with a named autowiring alias, and aliases the class to the first one.
+
+### Tests
+
+Unit tests on Symfony's `MockHttpClient`, with no delay between attempts: rows and prefixes, a retry, the final `RemoteException`, an answer of another format, the status.
