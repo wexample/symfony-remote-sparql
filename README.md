@@ -1,6 +1,6 @@
 # symfony-remote-sparql
 
-Version: 2.0.0
+Version: 2.0.1
 
 SPARQL endpoints (Wikidata's query service by default) as symfony-remotes: SELECT queries read as plain rows
 
